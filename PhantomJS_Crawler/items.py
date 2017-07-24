@@ -8,7 +8,13 @@
 import scrapy
 
 
-class PhantomjsCrawlerItem(scrapy.Item):
+class JOBItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    jobname = scrapy.Field()
+    companyname = scrapy.Field()
+    salary = scrapy.Field()
+    location = scrapy.Field()
+    pubdate = scrapy.Field()
+    itemurl = scrapy.Field()
+

@@ -6,7 +6,7 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+import random
 
 class PhantomjsCrawlerSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -54,3 +54,20 @@ class PhantomjsCrawlerSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+#random UA
+#随机UA头
+class RandomUA(object):
+    def __init__(self, agents):
+        self.agents = agents
+
+    @classmethod
+    def from_crawler(cls, crawler):
+     return cls(crawler.settings.getlist('USER_AGENTS'))
+
+    def process_request(self, request, spider):
+        print("**************************" + random.choice(self.agents))
+        request.headers.setdefault('User-Agent', random.choice(self.agents))
+
+

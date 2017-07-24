@@ -52,9 +52,10 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'PhantomJS_Crawler.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'PhantomJS_Crawler.middlewares.MyCustomDownloaderMiddleware': 543,
+    'PhantomJS_Crawler.JavaScriptMiddleware.JSMiddleware': 100
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -88,3 +89,8 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+#PhantomJS dir
+PATH_PhantomJS ='G:\phantomjs\phantomjs-2.1.1-windows\bin\phantomjs.exe'
+SearchKeyWords = 'python爬虫'
